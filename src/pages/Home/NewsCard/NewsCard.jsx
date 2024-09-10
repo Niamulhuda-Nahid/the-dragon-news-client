@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 import { FaRegBookmark } from "react-icons/fa6";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { FaEye } from "react-icons/fa";
-import Rating from 'react-rating';
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const NewsCard = ({ news }) => {
     const { _id, title, author, image_url, details, total_view, rating } = news;
@@ -35,15 +36,13 @@ const NewsCard = ({ news }) => {
                 </Card.Text>
             </Card.Body>
             <Card.Footer className="text-muted d-flex">
-                <div className='flex-grow-1 d-flex '>
+                <div className='flex-grow-1 d-flex align-item-center'>
                     <Rating
-                    className='text-warning'
-                        placeholderRating={rating.number}
-                        emptySymbol={<FaRegStar />}
-                        placeholderSymbol={<FaStar />}
-                        fullSymbol={<FaStar />}
+                        style={{ maxWidth: 125}}
+                        value={rating.number}
+                        readOnly
                     />
-                    <p className='ms-2'>{rating.number}</p>
+                    <p className='ms-2 fs-6'>{rating.number}</p>
                 </div>
                 <div className='d-flex align-items-center'>
                     <p className='me-2'><FaEye /></p>
